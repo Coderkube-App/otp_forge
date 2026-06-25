@@ -1,4 +1,4 @@
-## 0.1.0
+## 0.0.1
 
 * Initial release with OTP input UI, SMS Retriever, autofill, validation,
   resend timer, state management, theme customization, and headless controller.

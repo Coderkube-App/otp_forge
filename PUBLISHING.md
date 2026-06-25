@@ -43,6 +43,6 @@ Confirm when prompted. Publishing is irreversible for a given version.
 
 ## After publish
 
-- Tag the release: `git tag v0.1.0 && git push origin v0.1.0`
+- Tag the release: `git tag v0.0.1 && git push origin v0.0.1`
 - Create a GitHub release with notes from `CHANGELOG.md`
 - Verify the package page: `https://pub.dev/packages/otp_forge`

@@ -29,7 +29,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  otp_forge: ^0.1.0
+  otp_forge: ^0.0.1
 ```
 
 ## Usage
