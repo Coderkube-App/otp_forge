@@ -80,25 +80,25 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 ),
               ),
               const SizedBox(height: 32),
-              
+
               // Title
               Text(
                 'Verify your phone',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
               ),
               const SizedBox(height: 12),
-              
+
               // Subtitle
               Text(
                 'We\'ve sent a 6-digit verification code to your device.\n(Enter "123456" to succeed)',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.black54,
-                      height: 1.5,
-                    ),
+                  color: Colors.black54,
+                  height: 1.5,
+                ),
               ),
               const SizedBox(height: 48),
 
@@ -120,10 +120,11 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   children: [
                     OtpAuthFlow(
                       otpLength: 6,
-                      autoReadOtp: true, // Automatically listens for SMS on Android
+                      autoReadOtp:
+                          true, // Automatically listens for SMS on Android
                       fieldStyle: _currentStyle,
                       resendDuration: const Duration(seconds: 30),
-                      
+
                       // Customize the UI theme of the OTP fields
                       theme: OtpTheme(
                         borderRadius: 12,
@@ -134,27 +135,29 @@ class _VerificationScreenState extends State<VerificationScreen> {
                         unfocusedBorderColor: Colors.grey.shade300,
                         errorBorderColor: colorScheme.error,
                       ),
-                      
+
                       // Triggered when user completes typing 6 digits
                       verifyOtp: (otp) async {
                         // Simulate network request
                         await Future.delayed(const Duration(seconds: 2));
-                        
+
                         if (otp != '123456') {
                           throw Exception('Invalid OTP. Please try again.');
                         }
                         return true;
                       },
-                      
+
                       // Triggered when the user clicks 'Resend Code'
                       onResend: () async {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Verification code resent!')),
+                          const SnackBar(
+                            content: Text('Verification code resent!'),
+                          ),
                         );
                         // Simulate network request for resend
                         await Future.delayed(const Duration(seconds: 1));
                       },
-                      
+
                       // Triggered upon successful verification
                       onSuccess: (otp) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -162,7 +165,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
                             backgroundColor: Colors.green.shade600,
                             content: Row(
                               children: [
-                                const Icon(Icons.check_circle, color: Colors.white),
+                                const Icon(
+                                  Icons.check_circle,
+                                  color: Colors.white,
+                                ),
                                 const SizedBox(width: 12),
                                 Text('Success! Code $otp verified.'),
                               ],
@@ -170,7 +176,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           ),
                         );
                       },
-                      
+
                       // Triggered if verifyOtp throws an exception
                       onError: (message) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -178,7 +184,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
                             backgroundColor: colorScheme.error,
                             content: Row(
                               children: [
-                                const Icon(Icons.error_outline, color: Colors.white),
+                                const Icon(
+                                  Icons.error_outline,
+                                  color: Colors.white,
+                                ),
                                 const SizedBox(width: 12),
                                 Text(message),
                               ],
@@ -192,16 +201,22 @@ class _VerificationScreenState extends State<VerificationScreen> {
               ),
 
               const SizedBox(height: 32),
-              
+
               // Feature highlights
               const Text(
                 'Features demonstrated above:',
-                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black54,
+                ),
               ),
               const SizedBox(height: 12),
               _buildFeatureRow(Icons.timer, 'Built-in Resend Timer'),
               _buildFeatureRow(Icons.message, 'Auto-SMS Retriever (Android)'),
-              _buildFeatureRow(Icons.color_lens, 'Customizable Themes & Styles'),
+              _buildFeatureRow(
+                Icons.color_lens,
+                'Customizable Themes & Styles',
+              ),
               _buildFeatureRow(Icons.check_circle, 'Validation & Error States'),
             ],
           ),

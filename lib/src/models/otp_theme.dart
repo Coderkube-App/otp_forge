@@ -76,16 +76,19 @@ class OtpTheme {
           unfocusedBorderColor ?? colorScheme.outline.withValues(alpha: 0.5),
       errorBorderColor: errorBorderColor ?? colorScheme.error,
       filledColor: filledColor ?? colorScheme.surfaceContainerHighest,
-      textStyle: textStyle ??
-          Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-      errorTextStyle: errorTextStyle ??
-          Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: colorScheme.error,
-              ),
+      textStyle:
+          textStyle ??
+          Theme.of(
+            context,
+          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
+      errorTextStyle:
+          errorTextStyle ??
+          Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: colorScheme.error),
       cursorColor: cursorColor ?? colorScheme.primary,
-      disabledColor: disabledColor ?? colorScheme.onSurface.withValues(alpha: 0.38),
+      disabledColor:
+          disabledColor ?? colorScheme.onSurface.withValues(alpha: 0.38),
     );
   }
 

@@ -1,13 +1,11 @@
 name: otp_forge
 description: >-
-  A production-ready OTP authentication package for Flutter featuring SMS
-  Retriever integration, OTP autofill, validation, resend timers, verification
-  states, and fully customizable UI components.
-version: 0.0.1
-homepage: https://github.com/nileshsenta/otp_forge
-repository: https://github.com/nileshsenta/otp_forge
-issue_tracker: https://github.com/nileshsenta/otp_forge/issues
-documentation: https://pub.dev/documentation/otp_forge/latest/
+  A production-ready OTP authentication package for Flutter with SMS
+  Retriever integration, OTP autofill, validation, resend timers, and customizable UI.
+version: 0.0.2
+homepage: https://github.com/Coderkube-App/otp_forge
+repository: https://github.com/Coderkube-App/otp_forge
+issue_tracker: https://github.com/Coderkube-App/otp_forge/issues
 
 topics:
   - otp
@@ -36,3 +34,14 @@ flutter:
       android:
         package: com.otpforge.otp_forge
         pluginClass: OtpForgePlugin
+      ios:
+        pluginClass: OtpForgePlugin
+      macos:
+        pluginClass: OtpForgePlugin
+      windows:
+        pluginClass: OtpForgePluginCApi
+      linux:
+        pluginClass: OtpForgePlugin
+      web:
+        pluginClass: OtpForgeWeb
+        fileName: otp_forge_web.dart

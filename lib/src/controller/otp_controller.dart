@@ -88,7 +88,8 @@ class OtpController extends ChangeNotifier {
   bool get canResend => _canResend;
 
   /// Whether input and actions are locked (during verification).
-  bool get isLocked => _state == OtpState.verifying || _state == OtpState.success;
+  bool get isLocked =>
+      _state == OtpState.verifying || _state == OtpState.success;
 
   /// Updates the OTP value. Called by the input widget or auto-fill.
   void updateOtp(String value) {

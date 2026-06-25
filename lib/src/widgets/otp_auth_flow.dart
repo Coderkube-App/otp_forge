@@ -121,7 +121,8 @@ class _OtpAuthFlowState extends State<OtpAuthFlow> {
 
   void _initController() {
     _ownsController = widget.controller == null;
-    _controller = widget.controller ??
+    _controller =
+        widget.controller ??
         OtpController(
           otpLength: widget.otpLength,
           autoReadOtp: widget.autoReadOtp,
@@ -207,11 +208,10 @@ class _OtpAuthFlowState extends State<OtpAuthFlow> {
                 Text(
                   _countdownLabel(_controller.remainingSeconds),
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurface
-                            .withValues(alpha: 0.6),
-                      ),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
                 ),
             ],
             if (_controller.state == OtpState.verifying) ...[

@@ -11,7 +11,9 @@ import '../utils/otp_parser.dart';
 class SmsRetrieverService {
   SmsRetrieverService._();
 
-  static const MethodChannel _channel = MethodChannel('otp_forge/sms_retriever');
+  static const MethodChannel _channel = MethodChannel(
+    'otp_forge/sms_retriever',
+  );
 
   static StreamSubscription<String>? _subscription;
   static StreamController<String>? _controller;

@@ -5,10 +5,7 @@ import 'package:otp_forge/otp_forge.dart';
 void main() {
   group('OtpParser', () {
     test('extracts OTP from common SMS formats', () {
-      expect(
-        OtpParser.extract('Your OTP is 123456', length: 6),
-        '123456',
-      );
+      expect(OtpParser.extract('Your OTP is 123456', length: 6), '123456');
       expect(
         OtpParser.extract('123456 is your verification code', length: 6),
         '123456',
@@ -20,10 +17,7 @@ void main() {
     });
 
     test('returns null when OTP length does not match', () {
-      expect(
-        OtpParser.extract('Your OTP is 1234', length: 6),
-        isNull,
-      );
+      expect(OtpParser.extract('Your OTP is 1234', length: 6), isNull);
     });
 
     test('validates digit format', () {
@@ -57,8 +51,7 @@ void main() {
       controller = OtpController(
         otpLength: 6,
         autoVerify: false,
-        validator: (otp) =>
-            otp.length != 6 ? 'Invalid OTP' : null,
+        validator: (otp) => otp.length != 6 ? 'Invalid OTP' : null,
       );
       controller.updateOtp('123');
       final result = await controller.verifyOtp();

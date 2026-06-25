@@ -6,13 +6,14 @@ import '../models/otp_theme.dart';
 import '../utils/otp_autofill.dart';
 
 /// Builds a custom OTP field at [index] with the current [digit].
-typedef OtpFieldBuilder = Widget Function(
-  BuildContext context,
-  int index,
-  String? digit,
-  bool isFocused,
-  bool hasError,
-);
+typedef OtpFieldBuilder =
+    Widget Function(
+      BuildContext context,
+      int index,
+      String? digit,
+      bool isFocused,
+      bool hasError,
+    );
 
 /// OTP input widget supporting box, underline, and custom field styles.
 class OtpInput extends StatefulWidget {
@@ -92,8 +93,10 @@ class _OtpInputState extends State<OtpInput> {
     final resolvedTheme = widget.theme.resolve(context);
     final hasError = widget.controller.errorMessage != null;
     final isEnabled = widget.enabled && !widget.controller.isLocked;
-    final focusedIndex =
-        widget.controller.otp.length.clamp(0, widget.otpLength - 1);
+    final focusedIndex = widget.controller.otp.length.clamp(
+      0,
+      widget.otpLength - 1,
+    );
 
     final fieldsRow = Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -186,10 +189,7 @@ class _OtpInputState extends State<OtpInput> {
             children: [
               fieldsRow,
               Positioned.fill(
-                child: Opacity(
-                  opacity: 0.01,
-                  child: autofillField,
-                ),
+                child: Opacity(opacity: 0.01, child: autofillField),
               ),
             ],
           ),
@@ -226,13 +226,14 @@ class _BoxField extends StatelessWidget {
     final borderColor = !enabled
         ? theme.disabledColor!
         : hasError
-            ? theme.errorBorderColor!
-            : isFocused
-                ? theme.focusedBorderColor!
-                : theme.unfocusedBorderColor!;
+        ? theme.errorBorderColor!
+        : isFocused
+        ? theme.focusedBorderColor!
+        : theme.unfocusedBorderColor!;
 
-    final borderWidth =
-        isFocused && !hasError ? theme.focusedBorderWidth : theme.borderWidth;
+    final borderWidth = isFocused && !hasError
+        ? theme.focusedBorderWidth
+        : theme.borderWidth;
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),
@@ -274,13 +275,14 @@ class _UnderlineField extends StatelessWidget {
     final borderColor = !enabled
         ? theme.disabledColor!
         : hasError
-            ? theme.errorBorderColor!
-            : isFocused
-                ? theme.focusedBorderColor!
-                : theme.unfocusedBorderColor!;
+        ? theme.errorBorderColor!
+        : isFocused
+        ? theme.focusedBorderColor!
+        : theme.unfocusedBorderColor!;
 
-    final borderWidth =
-        isFocused && !hasError ? theme.focusedBorderWidth : theme.borderWidth;
+    final borderWidth = isFocused && !hasError
+        ? theme.focusedBorderWidth
+        : theme.borderWidth;
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),

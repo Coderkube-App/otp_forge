@@ -26,9 +26,9 @@ abstract final class OtpAutofillConfig {
 
   /// Input formatters for OTP fields.
   static List<TextInputFormatter> formatters(int otpLength) => [
-        FilteringTextInputFormatter.digitsOnly,
-        LengthLimitingTextInputFormatter(otpLength),
-      ];
+    FilteringTextInputFormatter.digitsOnly,
+    LengthLimitingTextInputFormatter(otpLength),
+  ];
 
   /// Commits the autofill context after a successful code fill (iOS).
   static void finishAutofillContext() {
