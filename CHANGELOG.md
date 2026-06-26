@@ -1,3 +1,8 @@
+## 0.0.3
+
+* Added Swift Package Manager (SPM) support for iOS and macOS.
+* Migrated Android project to use the new AGP built-in Kotlin configuration.
+
 ## 0.0.2
 
 * Added cross-platform support for iOS, macOS, Windows, Linux, and Web.
