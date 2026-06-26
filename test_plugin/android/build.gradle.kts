@@ -1,6 +1,18 @@
-group = "com.otpforge.otp_forge"
+group = "com.example.test_plugin"
 version = "1.0-SNAPSHOT"
 
+buildscript {
+    val kotlinVersion = "2.2.20"
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.11.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }
+}
 
 allprojects {
     repositories {
@@ -15,7 +27,7 @@ plugins {
 }
 
 android {
-    namespace = "com.otpforge.otp_forge"
+    namespace = "com.example.test_plugin"
 
     compileSdk = 36
 
@@ -59,7 +71,6 @@ android {
 }
 
 dependencies {
-    implementation("com.google.android.gms:play-services-auth-api-phone:18.1.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.mockito:mockito-core:5.0.0")
 }
